@@ -1,2 +1,4 @@
 com\tienda\mangedbean\ManageBeanInterfaces.class
 com\tienda\mangedbean\CargoManagedBean.class
+com\tienda\mangedbean\ProveedorInterfaces.class
+com\tienda\mangedbean\ProveedorManagedBean.class

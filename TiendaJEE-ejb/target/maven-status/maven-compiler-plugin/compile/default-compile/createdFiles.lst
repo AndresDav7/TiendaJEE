@@ -1,6 +1,8 @@
 com\tienda\entidades\EstadoCivil.class
 com\tienda\entidades\EstadoCivil_.class
+com\tienda\entidades\Proveedores.class
 com\entidades\session\CargoFacade.class
+com\entidades\session\ProveedoresFacadeLocal.class
 com\entidades\session\EmpleadoFacade.class
 com\entidades\session\AbstractFacade.class
 com\tienda\entidades\Empleado.class
@@ -8,6 +10,8 @@ com\entidades\session\EmpleadoFacadeLocal.class
 com\tienda\entidades\Cargo.class
 com\entidades\session\EstadoCivilFacadeLocal.class
 com\entidades\session\EstadoCivilFacade.class
+com\entidades\session\ProveedoresFacade.class
 com\tienda\entidades\Cargo_.class
 com\entidades\session\CargoFacadeLocal.class
+com\tienda\entidades\Proveedores_.class
 com\tienda\entidades\Empleado_.class

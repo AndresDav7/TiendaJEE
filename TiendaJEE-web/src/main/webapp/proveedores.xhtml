@@ -1,0 +1,130 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Mantenimiento de Proveedores</title>
+    </h:head>
+    <h:body>
+        
+        <ui:composition template="plantilla.xhtml">
+            
+            <ui:define name="content">
+                
+                
+        <h:form id="formprincipal">
+            
+            <p:panel header="#{proveedorManagedBean.proveedores.codigo==null?'INGRESO DE PROVEEDOR':'ACTUALIZAR PROVEEDOR'}"
+                     rendered="#{proveedorManagedBean.proveedores!=null}">
+            
+                <div align="center">
+                            <h:panelGrid columns="2" >
+                                <p:outputLabel value="CODIGO:"></p:outputLabel>
+                                <p:inputText value="#{proveedorManagedBean.proveedores.codigo}"
+                                             disabled="true"></p:inputText>
+                                <p:outputLabel value="NOMBRE:"></p:outputLabel>
+                                <p:inputText value="#{proveedorManagedBean.proveedores.nombre}"></p:inputText>
+                                
+                               
+                                
+                                <p:outputLabel value="RUC:"></p:outputLabel>
+                                <p:inputText value="#{proveedorManagedBean.proveedores.ruc}"></p:inputText>
+                                
+                                <p:outputLabel value="DIRECCION:"></p:outputLabel>
+                                <p:inputText value="#{proveedorManagedBean.proveedores.direccion}"></p:inputText>
+                                
+                                <p:outputLabel value="EMAIL:"></p:outputLabel>
+                                <p:inputText value="#{proveedorManagedBean.proveedores.email}"></p:inputText>
+                                
+                                <p:outputLabel value="CIUDAD:"></p:outputLabel>
+                                <p:inputText value="#{proveedorManagedBean.proveedores.ciudad}"></p:inputText>
+                                
+                                <p:outputLabel value="SITIO WEB:"></p:outputLabel>
+                                <p:inputText value="#{proveedorManagedBean.proveedores.sitioweb}"></p:inputText>
+                                
+                                
+                            </h:panelGrid>
+                        </div> 
+                
+                <div align="center">
+                            <p:commandButton value="CANCELAR"
+                                             action="#{proveedorManagedBean.cancelar()}"
+                                             update="formprincipal">
+                            </p:commandButton>
+
+                            <p:commandButton value="GRABAR"
+                                             action="#{proveedorManagedBean.grabar()}"
+                                             update="formprincipal">
+                            </p:commandButton>
+                        </div>
+                
+            </p:panel>
+ 
+            <p:panel header="LISTADO DE PROVEEDORES" rendered="#{proveedorManagedBean.proveedores==null}">
+                
+                <div align="center">
+                            <p:commandButton value="INGRESAR"
+                                             action="#{proveedorManagedBean.nuevo()}"
+                                             update="formprincipal"
+                                             style="align-items: center">
+                            </p:commandButton>
+                        </div>
+                
+                <p:dataTable id="tablaproveedores" value="#{proveedorManagedBean.listaProveedores}" var="prov"
+                                     emptyMessage="NO EXISTEN REGISTROS">
+                            <p:column headerText="CÓDIGO">
+                                <p:outputLabel value="#{prov.codigo}"></p:outputLabel>
+                            </p:column>
+                            <p:column headerText="NOMBRE">
+                                <p:outputLabel value="#{prov.nombre}"></p:outputLabel>
+                            </p:column>
+                    
+                   
+                            
+                            <p:column headerText="RUC">
+                                <p:outputLabel value="#{prov.ruc}"></p:outputLabel>
+                            </p:column>
+                    
+                    <p:column headerText="DIRECCION">
+                        <p:outputLabel value="#{prov.direccion}"></p:outputLabel>
+                            </p:column>
+                    
+                    <p:column headerText="EMAIL">
+                        <p:outputLabel value="#{prov.email}"></p:outputLabel>
+                            </p:column>
+
+                    <p:column headerText="CIUDAD">
+                        <p:outputLabel value="#{prov.ciudad}"></p:outputLabel>
+                            </p:column>
+                    
+                    <p:column headerText="SITIO WEB">
+                        <p:outputLabel value="#{prov.sitioweb}"></p:outputLabel>
+                            </p:column>
+                    
+                            <p:column headerText="EDITAR">
+                                <p:commandButton action="#{proveedorManagedBean.seleccionar(prov)}"
+                                                 update=":formprincipal"
+                                                 icon="ui-icon-check">
+                                </p:commandButton>
+                            </p:column>
+
+                            <p:column headerText="ELIMINAR">
+                                <p:commandButton action="#{proveedorManagedBean.eliminar(prov)}"
+                                                 update=":formprincipal"
+                                                 icon="ui-icon-trash">
+                                </p:commandButton>
+                            </p:column>
+
+                        </p:dataTable>
+                
+            </p:panel>
+                
+        </h:form>
+                </ui:define>
+        </ui:composition>
+                
+    </h:body>
+</html>
+
